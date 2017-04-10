@@ -20,7 +20,10 @@ if [ -d "/etc/ssl/certs_custom" ]; then
 		FILE_EXT="${FILE_PATH##*.}"
 		FILE_NAME="${FILE_PATH%.*}"
 		
-	    openssl x509 -in "$f" -out "/etc/ssl/certs_custom/$FILE_NAME.pem" -outform PEM
+		# One of them should work
+		echo "Installing $f ..."
+	    openssl x509 -in "$f" -out "/etc/ssl/certs/$FILE_NAME.pem" -outform PEM
+		openssl x509 -in "$f" -inform der -out "/etc/ssl/certs/$FILE_NAME.pem" -outform PEM
     done
 fi
 
