@@ -18,10 +18,8 @@ MAINTAINER Philipp Heuer <docker@philippheuer.me>
 ############################################################
 
 # Install packages. Notes:
-#   * dumb-init: a proper init system for containers, to reap zombie children
 #   * ca-certificates: for SSL verification
 ENV PACKAGES="\
-  dumb-init \
   ca-certificates \
 "
 
@@ -57,8 +55,5 @@ RUN echo "Starting the build ..." &&\
 # Volumes
 VOLUME ["/etc/ssl/certs"]
 
-# Process Supervisor
-ENTRYPOINT ["/usr/bin/dumb-init", "--"]
-
 # Execution
-CMD ["/usr/sbin/crond -l 2 -f"]
+ENTRYPOINT ["crond -l 2 -f"]
