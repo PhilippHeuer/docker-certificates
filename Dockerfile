@@ -37,7 +37,7 @@ RUN echo "Starting the build ..." &&\
 	###
 	# File Permissions
 	###
-	chmod -R +x /etc/periodic &&\
+	chmod +x /usr/local/bin/* &&\
 	###
 	# Build Image
 	###
@@ -55,7 +55,7 @@ RUN echo "Starting the build ..." &&\
 ############################################################
 
 # Volumes
-VOLUME ["/etc/ssl/certs/ca-certificates.crt"]
+VOLUME ["/etc/ssl/certs"]
 
 # Execution
-ENTRYPOINT ["crond", "-l", "2", "-f"]
+ENTRYPOINT ["/bin/true"]

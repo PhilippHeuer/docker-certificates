@@ -10,10 +10,36 @@ This project provides you with an alpine image that keeps your ca-certificates u
 
 ### Run it
 
-You can mount your custom certificates to `/etc/ssl/certs_custom/CERTNAME.crt` and it will be appended to the root certificate file.
+First you need to create a data-only container, which will share you cert-data over all containers.
 
-### How to use in your other containers
+```
+docker create --name cert --volume /etc/ssl/certs philippheuer/docker-certificates /bin/true
+```
 
+How to update the RootCA:
+
+```
+docker run -it --rm --volumes-from cert philippheuer/docker-certificates ca-update
+```
+
+To add your custom certificate you need to run the follow command one time:
+To use custom certificates, you need to mount them at `/etc/ssl/certs_custom/CERTNAME.crt` and it will be appended to the root certificate file by running the `ca-update` script.
+```
+docker run -it --rm \
+  --volumes-from cert \
+  --volume /LOCALPATH/file.crt:/etc/ssl/certs_custom/file.crt \
+  philippheuer/docker-certificates ca-update
+```
+
+
+
+### How to use
+Now you need to append the following part when you create your containers `--volumes-from cert:ro`.
+
+Example:
+```
+docker run -it --rm --volumes-from cert:ro alpine sh
+```
 
 ## License
 

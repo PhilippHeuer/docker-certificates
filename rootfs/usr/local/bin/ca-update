@@ -1,4 +1,8 @@
-#!/bin/bash
+#!/usr/bin/env sh
+
+############################################################
+# Script to Update the CA-Certificates
+############################################################
 
 echo "Updating Root CA's from the Alpine Repository"
 
