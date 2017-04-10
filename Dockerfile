@@ -55,7 +55,7 @@ RUN echo "Starting the build ..." &&\
 ############################################################
 
 # Volumes
-VOLUME ["/etc/ssl/certs"]
+VOLUME ["/etc/ssl/certs/ca-certificates.crt"]
 
 # Execution
 ENTRYPOINT ["crond", "-l", "2", "-f"]
