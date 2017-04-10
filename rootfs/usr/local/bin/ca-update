@@ -25,6 +25,18 @@ if [ -d "/etc/ssl/certs_custom" ]; then
 	    openssl x509 -in "$f" -out "/etc/ssl/certs/$FILE_NAME.pem" -outform PEM
 		openssl x509 -in "$f" -inform der -out "/etc/ssl/certs/$FILE_NAME.pem" -outform PEM
     done
+	
+	# Copy .PEM Files
+	for f in /etc/ssl/certs_custom/*.pem
+    do
+		FILE_PATH=$(basename "$f")
+		FILE_EXT="${FILE_PATH##*.}"
+		FILE_NAME="${FILE_PATH%.*}"
+		
+		# One of them should work
+		echo "Installing $f ..."
+		cp "$f" "/etc/ssl/certs/$FILE_NAME.pem"
+    done
 fi
 
 # Update CA-Certificates based on the files in /etc/ssl/certs
