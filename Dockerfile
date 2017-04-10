@@ -58,4 +58,4 @@ RUN echo "Starting the build ..." &&\
 VOLUME ["/etc/ssl/certs"]
 
 # Execution
-ENTRYPOINT ["crond, "-l", "2", "-f"]
+ENTRYPOINT ["crond", "-l", "2", "-f"]
