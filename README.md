@@ -31,8 +31,6 @@ docker run -it --rm \
   philippheuer/docker-certificates ca-update
 ```
 
-
-
 ### How to use
 Now you need to append the following part when you create your containers `--volumes-from cert:ro`.
 
