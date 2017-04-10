@@ -18,9 +18,11 @@ MAINTAINER Philipp Heuer <docker@philippheuer.me>
 ############################################################
 
 # Install packages. Notes:
-#   * ca-certificates: for SSL verification
+#   * ca-certificates: ca root certificates
+#   * openssl: to convert cert files
 ENV PACKAGES="\
   ca-certificates \
+  openssl \
 "
 
 ############################################################
