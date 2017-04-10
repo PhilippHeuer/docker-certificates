@@ -22,8 +22,8 @@ How to update the RootCA:
 docker run -it --rm --volumes-from cert philippheuer/docker-certificates ca-update
 ```
 
-To add your custom certificate you need to run the follow command one time:
 To use custom certificates, you need to mount them at `/etc/ssl/certs_custom/CERTNAME.crt` and it will be appended to the root certificate file by running the `ca-update` script.
+
 ```
 docker run -it --rm \
   --volumes-from cert \
@@ -32,7 +32,7 @@ docker run -it --rm \
 ```
 
 ### How to use
-Now you need to append the following part when you create your containers `--volumes-from cert:ro`.
+Now you need to append the following part when you create your containers `--volumes-from cert:ro`. This will mount the `ca-certificates.crt` in read-ony mode.
 
 Example:
 ```
