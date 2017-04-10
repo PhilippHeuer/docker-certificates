@@ -61,4 +61,4 @@ VOLUME ["/etc/ssl/certs"]
 ENTRYPOINT ["/usr/bin/dumb-init", "--"]
 
 # Execution
-CMD ["crond -l 2 -f"]
+CMD ["/usr/sbin/crond -l 2 -f"]
