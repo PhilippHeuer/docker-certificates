@@ -58,4 +58,4 @@ RUN echo "Starting the build ..." &&\
 VOLUME ["/etc/ssl/certs"]
 
 # Execution
-ENTRYPOINT ["/bin/true"]
+CMD ["/bin/true"]

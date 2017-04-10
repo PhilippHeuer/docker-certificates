@@ -13,7 +13,7 @@ This project provides you with an alpine image that keeps your ca-certificates u
 First you need to create a data-only container, which will share you cert-data over all containers.
 
 ```
-docker create --name cert --volume /etc/ssl/certs philippheuer/docker-certificates /bin/true
+docker create --name cert philippheuer/docker-certificates
 ```
 
 How to update the RootCA:
