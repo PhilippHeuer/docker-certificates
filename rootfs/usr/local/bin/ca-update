@@ -16,6 +16,7 @@ if [ -d "/etc/ssl/certs_custom" ]; then
     # Convert from X to .PEM
 	for f in /etc/ssl/certs_custom/*.crt
     do
+		[ -e "$f" ] || continue
 		FILE_PATH=$(basename "$f")
 		FILE_EXT="${FILE_PATH##*.}"
 		FILE_NAME="${FILE_PATH%.*}"
@@ -29,6 +30,7 @@ if [ -d "/etc/ssl/certs_custom" ]; then
 	# Copy .PEM Files
 	for f in /etc/ssl/certs_custom/*.pem
     do
+		[ -e "$f" ] || continue
 		FILE_PATH=$(basename "$f")
 		FILE_EXT="${FILE_PATH##*.}"
 		FILE_NAME="${FILE_PATH%.*}"
