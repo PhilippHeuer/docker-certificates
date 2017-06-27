@@ -20,9 +20,11 @@ MAINTAINER Philipp Heuer <docker@philippheuer.me>
 # Install packages. Notes:
 #   * ca-certificates: ca root certificates
 #   * openssl: to convert cert files
+#   * java-cacerts: java ca root certificates
 ENV PACKAGES="\
   ca-certificates \
   openssl \
+  java-cacerts \
 "
 
 ############################################################
