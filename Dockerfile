@@ -57,6 +57,7 @@ RUN echo "Starting the build ..." &&\
 ############################################################
 
 # Volumes
+VOLUME ["/etc/ssl/certs"]
 VOLUME ["/usr/local/share/ca-certificates"]
 
 # Execution
