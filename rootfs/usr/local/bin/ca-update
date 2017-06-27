@@ -23,8 +23,8 @@ if [ -d "/etc/ssl/certs_custom" ]; then
 		
 		# One of them should work
 		echo "Installing $f ..."
-	    openssl x509 -in "$f" -out "/etc/ssl/certs/$FILE_NAME.pem" -outform PEM
-		openssl x509 -in "$f" -inform der -out "/etc/ssl/certs/$FILE_NAME.pem" -outform PEM
+	    openssl x509 -in "$f" -out "/usr/local/share/ca-certificates/$FILE_NAME.pem" -outform PEM
+		openssl x509 -in "$f" -inform der -out "/usr/local/share/ca-certificates/$FILE_NAME.pem" -outform PEM
     done
 	
 	# Copy .PEM Files
@@ -37,7 +37,7 @@ if [ -d "/etc/ssl/certs_custom" ]; then
 		
 		# One of them should work
 		echo "Installing $f ..."
-		cp "$f" "/etc/ssl/certs/$FILE_NAME.pem"
+		cp "$f" "/usr/local/share/ca-certificates/$FILE_NAME.pem"
     done
 fi
 
